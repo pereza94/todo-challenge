@@ -42,65 +42,64 @@ Seguidamente es necesario ejecutar el docker, con la siguiente instrucción:
 
 Finalmente, si todo salió bien, debería ver la documentación de swagger al visitar la URL:http://localhost:9000/swagger/docs/.
 
-### Option B: Installing your own virtual environment
+### Opción B: Instalando su propio entorno virtual
 
-The first step is to create a virtualenv, one easy way to do that is using the tool `mkvirtualenv`. This tool is available [here](https://virtualenvwrapper-docs-es.readthedocs.io/es/latest/install.html).
+El primer paso es crear el entorno virtual, una forma simple de hacerlo es utilizando la herramienta `mkvirtualenv`. Esta herramienta esta disponible en  [here](https://virtualenvwrapper-docs-es.readthedocs.io/es/latest/install.html).
 
-To create the venv you can use the following command:
+Para crear el entorno virtual es posible utilizar el siguiente comando:
 `mkvirtualenv --python=python3.8 invera-challenge`
 
-Once you are in the Repo folder,  you need to install all the necessary dependencies, to do that you can run the following
+Una vez en la carpeta del repositorio, es necesario instalar las dependencias. Esto se puede realizar utilizando el siguiente comando:
 `pip install -r requirements.txt`
 
-Finally you can run the following to run the App:
+Finalmente, es posible correr la aplicación ejecutando:
 ` python manage.py runserver` 
 ![enter image description here](https://raw.githubusercontent.com/pereza94/ImagesForReadmes/draft/django-running-in-venv.png?token=GHSAT0AAAAAACOYVBDSQY4HOOUXBQ3IPWGKZPHPOCA)
 
-*Note:  by default, django starts the server listening in port 8000. But if you need to modify it is possible passing it as an argument in the command, for example `python manage.py runserver 0.0.0.0:8080`*
+*Nota: por defecto, django inicia el servidor escuchando en el puerto 8000. Pero es posible modificarlo pasando el puerot deseado como argumento, por ejemplo python manage.py runserver 0.0.0.0:8080`*
 
-If everything goes well you should be able to check the app documentation in  http://localhost:8080/swagger/docs/.
+Si todo salió bien, debería ser posible chequear la documentación de swagger en http://localhost:8080/swagger/docs/.
 ![enter image description here](https://raw.githubusercontent.com/pereza94/ImagesForReadmes/draft/swagger-documentation.png?token=GHSAT0AAAAAACOYVBDSNPE7XZADIFDNOJA2ZPHPRGA)
 
 
-# How to interact with App
-Once the App is running, it is possible to interact with it using requests. Currently exists many different tools that allow making requests in a straightforward mode.
+# Como interactuar con la aplicación
+Una vez que la App esta corriendo, es posible interactuar con ella a través de requests. Actualmente existen diferentes herramientas que permiten realizar esto de una forma muy simple.
 
-The App is running swagger, in the route `/swagger/docs`. This page displays all the possible interactions that are currently available, and by setting the proper credentials you can make as many requests as you want.
+Por ejemplo, la aplicación provee swagger, en la ruta `/swagger/docs`. Esta pagina muestra todas las posible interacciones disponibles actualmente; y seteando las credenciales necesarias puede realizar tantas consultas como desee.
 
-There is a super user available to be used whose username and password are **challenge:ChallengePassword**
+Existe un super usuario seteado en la aplicación, cuyo nombre de usuario y contraseña son: **challenge:ChallengePassword**
  ![enter image description here](https://raw.githubusercontent.com/pereza94/ImagesForReadmes/draft/swagger-image.png)
 
-In the route `tasks/task` the one that allows listing all the tasks stored in the DB, there are the following filters:
+En la ruta `tasks/task` que permite listar todas las tareas almacenadas en la BD, están disponibles los siguites filtros:
 
- - ***description_contains***: returns all the tasks whose description contains the searched text.
- - ***name_contains***: returns all the tasks whose name contains the searched text.
- - ***minimum_date***: returns all the tasks created after the date set. (The expected input format is dd-mm-yy)
- - ***maximum_date***: returns all the tasks created before the date set. (The expected input format is dd-mm-yy)
+ - ***description_contains***: retorna todas las tareas que en la descripción incluyan la palabra buscada.
+ - ***name_contains***: retorna todas las tareas que en el nombre incluyan la palabra buscada
+ - ***minimum_date***: retorna todas las tareas creadas luego de la fecha seleccionada. (El formato esperado para el ingreso de la fecha es dd-mm-yy)
+ - ***maximum_date***: retorna todas las tareas creadas antes de la fecha seleccionada. (El formato esperado para el ingreso de la fecha es dd-mm-yy)
 
-## Interacting using postman
+## Interactuar con la aplicación utilizando Postman
 
-Another option to interact with the App is using Postman. To do that it is possible to use this [collection](https://github.com/pereza94/ImagesForReadmes/blob/draft/TodoChallenge.postman_collection.json), and set the required credentials as `Basic Auth` in the authorizations tab.
+Otra opción para interactuar con la aplicación es utilizando postman. Para esto es posible utilizar [esta collection](https://github.com/pereza94/ImagesForReadmes/blob/draft/TodoChallenge.postman_collection.json), y configurar las credenciales requeridas como `Basic Auth`en la pestaña `authorizations`
 
 ![](https://raw.githubusercontent.com/pereza94/ImagesForReadmes/draft/PostmanInstructions.png)
 
-***Note***: as Basic Auth is being used, it is highly recommended to save it as variables inside a Postman environment, instead of setting it in the request itself.
+**Nota**: como se está utilizando `Basic Auth`, es recomendable almacenar las credeciales como variables dentro de un ambiente de Postman, en lugar de declararlas en cada una de las request.
 
  
-# Posible Improvements
-Some of the possible improvements for the current version are:
+# Posible mejoras
+Algunas de las posibles mejoras para la versión actual son:
 
-* Add more functionality to classes, like: 
-	* Be able to set responsibilities for each task.
-	* Be able to set a percentage of task progress
-	* Be able to set priority and types for subtasks
-	* Be able to set a task size
-	* Etc
+* Agregar mayor funcionalidad a las clases, como por ejemplo:
+  	* Poder setear responsables para cada tarea
+  	* Porder establecer/calcular el porcetaje de completitud de cada tarea.
+  	* Poder establecer tipos y prioridades para las sub tareas.
+  	* Poder establecer tamaños para las subtareas.
+  	* Etc
+  	* 
+* Mejorar la gestión de usuarios y la seguridad:
+  	* ***Usar SSL sobre HTTP***
+  	* Hacer obligatoria una verificación del mail por parte de los usuarios.
+  	* Setear tiempo de expiración para las contraseñas.
+  	* Generar mejores chequeos para evitar ataques del tipo: XSSm SQLi, CRFF, entre otros.
 
-* Improve user manage and security:
-	*  ***Use SSL over HTTP***
-	* Make mandatory a user mail verification.
-	* Set user's password expiration
-	* Make better checks to avoid attacks of type: *XSS, SQLi, CRSF* and others.
-	* Add internal logging, and not only transactions login
-
-* Look for methods to improve the performance like, prefetch the queries, paginated, and others.
+* Investigar formas de mejorar la performace de la aplicación tales como: usar prefetch para las queries, paginación y otras.
