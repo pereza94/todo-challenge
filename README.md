@@ -108,3 +108,4 @@ Some of the possible improvements for the current version are:
 	* Add internal logging, and not only transactions login
 
 * Look for methods to improve the performance like, prefetch the queries, paginated, and others.
+* Add pre-commit hooks to guarantee the code style
