@@ -55,7 +55,7 @@ class TaskListView(ModelViewSet):
         """
         List all the tasks and subtasks associated with it, as a field called 'subtasks'
         """
-        tasks = self.queryset.all()
+        tasks = self.get_queryset()
         serializer = TaskSerializerDetailed(tasks, many=True)
         return Response(serializer.data)
 
@@ -72,8 +72,10 @@ class TaskListView(ModelViewSet):
         Given a Task id, list all its field and its subtasks.
         """
         instance = self.get_object()
-        serializer = TaskSerializerDetailed(instance)
-        return Response(serializer.data)
+        if instance:
+            serializer = TaskSerializerDetailed(instance)
+            return Response(serializer.data)
+        return Response("No task found")
 
 
 class SubTaskModelView(ModelViewSet):
