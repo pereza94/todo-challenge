@@ -103,3 +103,4 @@ Algunas de las posibles mejoras para la versión actual son:
   	* Generar mejores chequeos para evitar ataques del tipo: XSSm SQLi, CRFF, entre otros.
 
 * Investigar formas de mejorar la performace de la aplicación tales como: usar prefetch para las queries, paginación y otras.
+* Añadir pre-commits hooks, para garantizar el estilo de código
