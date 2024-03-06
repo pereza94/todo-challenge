@@ -1,7 +1,7 @@
 `Este README esta disponible en español` [aquí](https://github.com/pereza94/todo-challenge/blob/develop/README_ES.md)
 # Invera Todo Challenge
 
-This Repo contains the first version of  Invera's challenge (Python/Django Jr-SSr).  All the details about the challenge and its requirements can be found [here](https://github.com/invera/todo-challenge?tab=readme-ov-file).
+This Repo contains the first version of Invera's challenge (Python/Django Jr-SSr).  All the details about the challenge and its requirements can be found [here](https://github.com/invera/todo-challenge?tab=readme-ov-file).
 
 # Development summary
 The main objective of this development is to comply with the requirements of the challenge. For that reason a small application was developed, the structure is really simple, where interact 3 different models (classes) to allow the users to book pending tasks.
@@ -18,7 +18,7 @@ The following are the Classes and E/R diagrams
 ![Diagram 2](https://raw.githubusercontent.com/pereza94/ImagesForReadmes/draft/Diagrama2.png)
 
 # How to run this App.
-The first thing you need to do is clone this repo in your local enviromment. To do that is just necessary to execute the command `git clone git@github.com:pereza94/todo-challenge.git` inside the folder where you want the Repo to be cloned in your computer. 
+The first thing you need to do is clone this repo in your machine. To do that is just necessary to execute the command `git clone git@github.com:pereza94/todo-challenge.git` inside the folder where you want the Repo to be cloned in your computer. 
 
 Once this is completed, you can take two different ways to run the App:
 
@@ -28,18 +28,18 @@ Once this is completed, you can take two different ways to run the App:
 ### Option A: Using Docker
 The simplest way to run this App for testing its behavior is using Docker. To use docker it is necessary to install on the local machine the Docker Desktop (if you don't have the tool already installed, you can download it from [docker site](https://www.docker.com/products/docker-desktop/#), the tool is available for mostly all popular SO)
 
-To check if the docker was prpoperly installed, you run in your terminal (or Powershell if you are using Windows) the command docker --version. If you received the version as output means that docker was installed successfully.
+To check if the docker was properly installed, you run in your terminal (or Powershell if you are using Windows) the command docker --version. If you received the version as output means that docker was installed successfully.
 
 ![enter image description here](https://raw.githubusercontent.com/pereza94/ImagesForReadmes/draft/docker_version.png?token=GHSAT0AAAAAACOYVBDTPXDGZCPSWUHIRJ7EZPHNKMQ)
 
 
 At this point, you only need to go to the folder where the Repo was cloned. To be sure that you are in the right folder, you should  view at least the following folders `tasks, test, todoChallenge` and a file named `DockerFile`
 
-Once there you need to build the docker image, running the following command:
+Once there you need to build the docker image, by running the following command:
 `docker build -t todochallenge .`. When the image building is finished, you will see a message similar to the following one:
 ![enter image description here](https://raw.githubusercontent.com/pereza94/ImagesForReadmes/draft/docker_build.png?token=GHSAT0AAAAAACOYVBDS3YBN4OURILOUBBCSZPHOJQA)
 
-Next, you need to run the docker with the following instruction:
+Next, you need to run the docker with the following instructions:
 ` sudo docker run -it -p 9000:8000 todochallenge`
 ![enter image description here](https://raw.githubusercontent.com/pereza94/ImagesForReadmes/draft/docker_running.png?token=GHSAT0AAAAAACOYVBDSKMTOS5K6XBZXIDWOZPHOIWQ)
 *Note:  in the former example, the local machine is listening in port 9000, but you could whatever port that you want*
@@ -56,11 +56,11 @@ To create the venv you can use the following command:
 Once you are in the Repo folder,  you need to install all the necessary dependencies, to do that you can run the following
 `pip install -r requirements.txt`
 
-Finally you can run the following to run the App:
+Finally, you can run the following to run the App:
 ` python manage.py runserver` 
 ![enter image description here](https://raw.githubusercontent.com/pereza94/ImagesForReadmes/draft/django-running-in-venv.png?token=GHSAT0AAAAAACOYVBDSQY4HOOUXBQ3IPWGKZPHPOCA)
 
-*Note:  by default, django starts the server listening in port 8000. But if you need to modify it is possible passing it as an argument in the command, for example `python manage.py runserver 0.0.0.0:8080`*
+*Note:  by default, django starts the server listening in port 8000. But if you need to modify it is possible to pass it as an argument in the command, for example `python manage.py runserver 0.0.0.0:8080`*
 
 If everything goes well you should be able to check the app documentation in  http://localhost:8080/swagger/docs/.
 ![enter image description here](https://raw.githubusercontent.com/pereza94/ImagesForReadmes/draft/swagger-documentation.png?token=GHSAT0AAAAAACOYVBDSNPE7XZADIFDNOJA2ZPHPRGA)
