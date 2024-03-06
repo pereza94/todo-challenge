@@ -1,4 +1,4 @@
-
+`Este README esta disponible en español` [aquí](https://github.com/pereza94/todo-challenge/blob/develop/README_ES.md)
 # Invera Todo Challenge
 
 This Repo contains the first version of  Invera's challenge (Python/Django Jr-SSr).  All the details about the challenge and its requirements can be found [here](https://github.com/invera/todo-challenge?tab=readme-ov-file).
